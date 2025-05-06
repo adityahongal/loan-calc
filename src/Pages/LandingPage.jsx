@@ -1,11 +1,10 @@
-import React from 'react'
+import React from "react";
+import EMICalculator from "../Components/EMICalculator";
 
-const LandingPage = () => {
-  return (
-    <div>
-      <h1 className='text-3xl'>Landing Page</h1>
-    </div>
-  )
-}
+const LandingPage = () => (
+  <div className="min-h-screen bg-gray-100">
+    <EMICalculator />
+  </div>
+);
 
-export default LandingPage
+export default LandingPage;
