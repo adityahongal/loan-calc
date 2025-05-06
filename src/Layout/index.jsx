@@ -1,14 +1,14 @@
-import React from 'react'
-import AppBar from './AppBar'
-import LandingPage from '../Pages/LandingPage'
+import React from 'react';
+import AppBar from './AppBar';
+import { Outlet } from 'react-router-dom';
 
 const Layout = () => {
   return (
     <div>
-      <AppBar/>
-      <LandingPage/>
+      <AppBar />
+      <Outlet /> {/* This will render the child components like LandingPage or ExchangeRateTable */}
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

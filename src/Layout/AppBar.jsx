@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import {
   Bars3Icon,
@@ -17,24 +18,24 @@ const AppBar = () => {
     <>
       <header className="flex bg-brand border-b border-color-#D1D1D1 items-center justify-center lg:h-28 md:h-12">
         <div className="flex w-full items-center justify-between lg:mx-20 md:mx-5 xs:mx-5 mx-5 my-5">
-          <a
-            className="font-urbanist lg:text-2xl font-normal text-[#2B3335] hover:text-[#2B3335]/75 transition-colors md:text-base"
-            href="/"
+          <Link
+            to="/"
+            className="font-urbanist lg:text-2xl font-normal text-[#2B3335] hover:text-blue-500 transition-colors md:text-base"
           >
             Loan Calculator
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <ul className="flex flex-row items-center gap-6 text-sm">
               <li>
-                <a
+                <Link
+                  to="/exchange-rate" // Link to /exchange-rate
                   className="flex items-center gap-2 font-urbanist lg:text-2xl font-normal text-[#2B3335] hover:text-blue-500 transition-colors md:text-base"
-                  href="/"
                 >
                   Live Exchange Rate
                   <span className="h-3 w-3 bg-red-500 rounded-full animate-pulse" />
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -77,13 +78,14 @@ const AppBar = () => {
                 <nav className="mt-4 space-y-4 px-4 py-4">
                   <div className="flex items-center space-x-4">
                     <NewspaperIcon className="h-6 w-6 text-black" />
-                    <a
-                      href="/"
+                    <Link
+                      to="/exchange-rate"
+                      onClick={toggleMobileMenu}
                       className="text-base font-normal font-poppins text-black hover:text-blue-500 flex items-center gap-2"
                     >
                       Live Exchange Rates
                       <span className="h-2 w-2 bg-red-500 rounded-full animate-pulse" />
-                    </a>
+                    </Link>
                   </div>
                 </nav>
               </div>
