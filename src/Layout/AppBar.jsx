@@ -81,7 +81,7 @@ const AppBar = () => {
                     <Link
                       to="/exchange-rate"
                       onClick={toggleMobileMenu}
-                      className="text-base font-normal font-poppins text-black hover:text-blue-500 flex items-center gap-2"
+                      className="text-base font-normal font-urbanist text-black hover:text-blue-500 flex items-center gap-2"
                     >
                       Live Exchange Rates
                       <span className="h-2 w-2 bg-red-500 rounded-full animate-pulse" />
