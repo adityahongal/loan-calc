@@ -6,7 +6,7 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx,css}",
     './node_modules/preline/dist/*.js', // Include Preline components
   ],
-  darkMode: 'selector',
+  darkMode: 'class',
   theme: {
     extend: {
       screens: {
@@ -27,6 +27,12 @@ export default {
       },
       boxShadow: {
         'custom': '0 10px 100px rgba(255, 209, 231, 0.2)', // Customize this shadow as needed
+      },
+      colors: {
+        brand: '#f9fafb',
+        'brand-dark': '#18181b',
+        'purple-dark': '#a78bfa', // purple-400
+        'text-main': '#2B3335',
       },
     },
   },

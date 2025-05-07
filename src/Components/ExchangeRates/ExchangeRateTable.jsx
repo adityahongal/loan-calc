@@ -39,7 +39,7 @@ const ExchangeRateTable = () => {
   );
 
   return (
-    <div className="p-4 max-w-5xl mx-auto md:my-6 bg-white rounded-lg shadow-lg">
+    <div className="p-4 max-w-5xl mx-auto md:my-6 bg-brand dark:bg-brand-dark text-text-main dark:text-purple-dark rounded-lg shadow-lg transition-colors duration-300">
       <Typography variant="h4" className="mb-4 text-center font-poppins py-4">
         Exchange Rates - <br className="md:hidden" />Base: {baseCurrency}
       </Typography>
@@ -52,6 +52,17 @@ const ExchangeRateTable = () => {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className="w-full md:w-1/2"
+          InputProps={{
+            style: {
+              color: "inherit",
+              background: "inherit"
+            }
+          }}
+          InputLabelProps={{
+            style: {
+              color: "inherit"
+            }
+          }}
         />
         <ToggleButtonGroup
           color="primary"
@@ -71,28 +82,36 @@ const ExchangeRateTable = () => {
 
       {/* Table */}
       {!loading && !error && (
-        <Paper className="rounded-xl overflow-hidden">
-          <TableContainer className="max-h-[500px]">
+        <Paper className="rounded-xl overflow-hidden bg-white dark:bg-[#23272f] transition-colors duration-300">
+          <TableContainer className="max-h-[500px] ">
             <Table stickyHeader>
-              <TableHead className="bg-gray-100">
+              <TableHead className="bg-gray-100 dark:bg-[#23272f] transition-colors duration-300">
                 <TableRow>
-                  <TableCell>
+                  <TableCell className="text-text-main dark:text-purple-dark transition-colors duration-300">
                     <TableSortLabel
                       active
                       direction={sortAsc ? "asc" : "desc"}
                       onClick={handleSort}
+                      sx={{
+                        color: "inherit",
+                        "&.Mui-active": {
+                          color: "inherit"
+                        }
+                      }}
                     >
                       Currency
                     </TableSortLabel>
                   </TableCell>
-                  <TableCell align="right">Rate</TableCell>
+                  <TableCell align="right" className="text-text-main dark:text-purple-dark transition-colors duration-300">
+                    Rate
+                  </TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
                 {paginatedRates.map(({ currency, rate }) => (
-                  <TableRow key={currency}>
-                    <TableCell>{currency}</TableCell>
-                    <TableCell align="right">{rate}</TableCell>
+                  <TableRow key={currency} className="hover:bg-gray-50 dark:hover:bg-[#23272f] transition-colors duration-300">
+                    <TableCell className="text-text-main dark:text-purple-dark">{currency}</TableCell>
+                    <TableCell align="right" className="text-text-main dark:text-purple-dark">{rate}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>
@@ -107,6 +126,7 @@ const ExchangeRateTable = () => {
             rowsPerPage={ROWS_PER_PAGE}
             page={page}
             onPageChange={handleChangePage}
+            className="bg-gray-50 dark:bg-[#23272f] text-text-main dark:text-purple-dark transition-colors duration-300"
           />
         </Paper>
       )}
